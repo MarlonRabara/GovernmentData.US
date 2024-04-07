@@ -1,18 +1,21 @@
 using Newtonsoft.Json;
 
-internal class GovApiWrapper
+internal class GovApiWrapper : IDisposable
 {
     private readonly HttpClient _httpClient;
     private readonly string _baseUri;
+    private bool _disposed;
 
     public GovApiWrapper(string baseUri)
     {
         _httpClient = new HttpClient();
         _baseUri = baseUri;
+        _disposed = false;
     }
 
     public async Task<T> GetAsync<T>(string endpoint)
     {
+        CheckDisposed();
         try
         {
             var response = await _httpClient.GetAsync(new Uri(_baseUri + endpoint));
@@ -40,6 +43,7 @@ internal class GovApiWrapper
 
     public async Task PostAsync<T>(string endpoint, T data)
     {
+        CheckDisposed();
         try
         {
             var content = new StringContent(JsonConvert.SerializeObject(data), System.Text.Encoding.UTF8, "application/json");
@@ -60,5 +64,33 @@ internal class GovApiWrapper
         }
     }
 
-    // Similarly, you can implement PutAsync, DeleteAsync etc.
+    public void Dispose()
+    {
+        Dispose(true);
+        GC.SuppressFinalize(this);
+    }
+
+    protected virtual void Dispose(bool disposing)
+    {
+        if (!_disposed)
+        {
+            if (disposing)
+            {
+                // Dispose managed resources
+                _httpClient.Dispose();
+            }
+
+            // Dispose unmanaged resources
+
+            _disposed = true;
+        }
+    }
+
+    private void CheckDisposed()
+    {
+        if (_disposed)
+        {
+            throw new ObjectDisposedException(nameof(GovApiWrapper), $"The {this.GetType().Name} object has been disposed.");
+        }
+    }
 }

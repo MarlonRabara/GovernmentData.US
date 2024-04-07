@@ -9,6 +9,6 @@ namespace GovernmentData.US.Services.Interfaces
 {
     internal interface IDisasterService : IGovernmentService
     {
-        List<Disaster> GetDisasters(DateTime fromDate, DateTime toDate);
+        List<Disaster> GetDisasters(DateTime fromDate, DateTime toDate, string propertyState);
     }
 }
