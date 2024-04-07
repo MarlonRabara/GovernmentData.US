@@ -92,15 +92,15 @@ namespace GovernmentData.US.BDD.Tests.Features
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("A particular property is verified for disaster inclusion")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("A particular property is verified for disaster inclusion for a particular date")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Disaster")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("disasterProperty")]
-        public async System.Threading.Tasks.Task AParticularPropertyIsVerifiedForDisasterInclusion()
+        public async System.Threading.Tasks.Task AParticularPropertyIsVerifiedForDisasterInclusionForAParticularDate()
         {
             string[] tagsOfScenario = new string[] {
                     "disasterProperty"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            Reqnroll.ScenarioInfo scenarioInfo = new Reqnroll.ScenarioInfo("A particular property is verified for disaster inclusion", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            Reqnroll.ScenarioInfo scenarioInfo = new Reqnroll.ScenarioInfo("A particular property is verified for disaster inclusion for a particular date", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 6
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -111,13 +111,16 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 7
+#line 8
  await testRunner.GivenAsync("the property is located at 5731 Da Vinci Way, Sacramento, CA 95835", ((string)(null)), ((Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 8
+#line 9
+ await testRunner.AndAsync("the property is being analyzed between the dates 1/1/2024 and 2/9/2024", ((string)(null)), ((Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 10
  await testRunner.WhenAsync("the property is verified for disaster inclusion", ((string)(null)), ((Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 9
+#line 11
  await testRunner.ThenAsync("the property is included in the disaster data", ((string)(null)), ((Reqnroll.Table)(null)), "Then ");
 #line hidden
             }

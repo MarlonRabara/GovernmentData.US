@@ -12,6 +12,13 @@ namespace GovernmentData.US.BDD.Tests.StepDefinitions
             throw new PendingStepException();
         }
 
+        [Given("the property is being analyzed between the dates (.*) and (.*)")]
+        public void GivenThePropertyIsBeingAnalyzedBetweenTheDates(DateTime fromDate, DateTime toDate)
+        {
+            throw new PendingStepException();
+        }
+
+
         [When("the property is verified for disaster inclusion")]
         public void WhenThePropertyIsVerifiedForDisasterInclusion()
         {
