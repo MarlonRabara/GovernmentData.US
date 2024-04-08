@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GovernmentData.US.Services.Interfaces
 {
-    internal interface IGovernmentService
+    public interface IGovernmentService
     {
     }
 }

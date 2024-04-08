@@ -11,7 +11,7 @@ namespace GovernmentData.US.Services
 {
     public class DisasterService : IDisasterService
     {
-        internal DisasterService() { }
+        public DisasterService() { }
 
 
         public List<Disaster> GetDisasters(DateTime fromDate, DateTime toDate, string propertyState)

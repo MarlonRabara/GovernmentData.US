@@ -19,4 +19,9 @@
     <Folder Include="Support\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\GovernmentData.US.Models\GovernmentData.US.Models.csproj" />
+    <ProjectReference Include="..\GovernmentData.US.Services\GovernmentData.US.Services.csproj" />
+  </ItemGroup>
+
 </Project>

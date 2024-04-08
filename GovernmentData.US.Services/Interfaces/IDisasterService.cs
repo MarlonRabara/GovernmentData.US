@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GovernmentData.US.Services.Interfaces
 {
-    internal interface IDisasterService : IGovernmentService
+    public interface IDisasterService : IGovernmentService
     {
         List<Disaster> GetDisasters(DateTime fromDate, DateTime toDate, string propertyState);
     }
